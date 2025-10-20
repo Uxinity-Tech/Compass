@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ShieldCheckIcon, ClockIcon, UsersIcon, CheckCircleIcon } from "@heroicons/react/outline";
 import gggg from "../assets/images/gggg.png";
-import Irc from "../assets/images/irc.jpg";
+import irc from "../assets/images/irc.jpg";
 import Mmm from "../assets/images/Mmm.png";
 import red from "../assets/images/red.png";
 // Formal Business Icons (No external dependencies)
@@ -130,7 +130,7 @@ const partnerLogos = [
   },
   {
     name: "IRCTC",
-    logoUrl: Irc,
+    logoUrl: irc,
     bgColor: "bg-white",
   },
   {
