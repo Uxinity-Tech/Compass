@@ -63,6 +63,13 @@ const trustSignals = [
 ];
 
 const About = () => {
+  useEffect(() => {
+      window.scrollTo(0, 0);
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }, []);
   const [activeMilestone, setActiveMilestone] = useState(0);
 
   useEffect(() => {

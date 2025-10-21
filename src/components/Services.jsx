@@ -108,11 +108,11 @@ const services = [
 const Services = () => {
   return (
     <section className="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      {/* Subtle Background Pattern */}
+      {/* Background elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-50/30 via-transparent to-transparent"></div>
       <div className="absolute inset-0 bg-grid-slate-100/[0.2]"></div>
-      
-      {/* Floating Geometric Elements */}
+
+      {/* Floating Orbs */}
       <motion.div
         className="absolute top-20 left-10 w-64 h-64 bg-blue-500/5 rounded-full mix-blend-multiply filter blur-3xl opacity-70"
         animate={{ y: [0, -20, 0] }}
@@ -137,7 +137,7 @@ const Services = () => {
             <Icons.ShieldCheck className="w-4 h-4 mr-2" />
             Enterprise-Grade Travel Solutions
           </div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -150,7 +150,7 @@ const Services = () => {
               {" "}Travel Services
             </span>
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -168,7 +168,7 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-8 mt-12 text-sm text-slate-600"
+            className="flex flex-wrap justify-center gap-6 sm:gap-8 mt-12 text-sm text-slate-600"
           >
             <div className="flex items-center space-x-3">
               <Icons.Users className="w-5 h-5 text-blue-600" />
@@ -185,7 +185,7 @@ const Services = () => {
           </motion.div>
         </motion.div>
 
-        {/* Services Grid */}
+        {/* RESPONSIVE GRID: 2 on mobile, 2 on tablet, 4 on xl */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -193,7 +193,7 @@ const Services = () => {
           variants={{
             visible: { transition: { staggerChildren: 0.15 } }
           }}
-          className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 mt-20"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20"
         >
           {services.map((service, index) => (
             <motion.div
@@ -204,10 +204,7 @@ const Services = () => {
                   opacity: 1, 
                   y: 0, 
                   scale: 1,
-                  transition: {
-                    duration: 0.6,
-                    ease: [0.22, 1, 0.36, 1]
-                  }
+                  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
                 }
               }}
               whileHover={{ 
@@ -217,10 +214,9 @@ const Services = () => {
               }}
               className="group relative overflow-hidden bg-white/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-xl hover:shadow-2xl hover:border-blue-200/50 transition-all duration-500 cursor-pointer"
             >
-              {/* Service Card Background Gradient */}
+              {/* Card content remains the same */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.color}/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
               
-              {/* Premium Badge */}
               <div className="absolute top-6 right-6">
                 <div className="flex items-center space-x-1 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-white/50 text-xs font-semibold text-slate-700">
                   <Icons.Check className="w-3 h-3 text-emerald-600" />
@@ -228,11 +224,9 @@ const Services = () => {
                 </div>
               </div>
 
-              {/* Main Content */}
-              <div className="relative z-10 p-8 h-full flex flex-col">
-                {/* Icon Container with Premium Animation */}
+              <div className="relative z-10 p-6 sm:p-8 h-full flex flex-col">
                 <motion.div
-                  className="flex justify-center mb-6 p-4 bg-gradient-to-br from-white/50 to-white/20 rounded-2xl backdrop-blur-sm border border-white/30 shadow-lg w-fit mx-auto group-hover:scale-110 transition-transform duration-300"
+                  className="flex justify-center mb-6 p-3 bg-gradient-to-br from-white/50 to-white/20 rounded-2xl backdrop-blur-sm border border-white/30 shadow-lg w-fit mx-auto group-hover:scale-110 transition-transform duration-300"
                   whileHover={{ rotateY: 5 }}
                 >
                   <motion.div
@@ -245,26 +239,24 @@ const Services = () => {
                       repeat: Infinity, 
                       repeatDelay: index * 0.5 
                     }}
-                    className={`p-4 rounded-xl ${service.color} shadow-lg`}
+                    className={`p-3 rounded-xl ${service.color} shadow-lg`}
                   >
-                    <service.icon className="text-white drop-shadow-md" />
+                    <service.icon className="text-white drop-shadow-md w-10 h-10" />
                   </motion.div>
                 </motion.div>
 
-                {/* Title & Description */}
                 <div className="flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3 text-center group-hover:text-blue-700 transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 text-center group-hover:text-blue-700 transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6 text-center flex-1">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 text-center flex-1">
                     {service.desc}
                   </p>
 
-                  {/* Stats Row */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
                     {Object.entries(service.stats).map(([key, value]) => (
                       <div key={key} className="text-center p-2 bg-slate-50/50 rounded-xl">
-                        <div className="text-2xl font-bold text-slate-800">{value}</div>
+                        <div className="text-lg sm:text-2xl font-bold text-slate-800">{value}</div>
                         <div className="text-xs text-slate-500 uppercase tracking-wide font-medium">
                           {key.replace(/([A-Z])/g, ' $1').trim()}
                         </div>
@@ -272,33 +264,30 @@ const Services = () => {
                     ))}
                   </div>
 
-                  {/* Feature List */}
-                  <div className="space-y-2 mb-8">
+                  <div className="space-y-2 mb-6">
                     {service.features.map((feature, i) => (
-                      <div key={i} className="flex items-center space-x-3 py-1.5 px-2 bg-white/60 rounded-lg backdrop-blur-sm border border-white/40 group-hover:bg-blue-50/50 transition-colors">
+                      <div key={i} className="flex items-center space-x-2 py-1 px-2 bg-white/60 rounded-lg backdrop-blur-sm border border-white/40 group-hover:bg-blue-50/50 transition-colors text-xs sm:text-sm">
                         <div className="flex-shrink-0 w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                        <span className="text-sm text-slate-700 font-medium">{feature}</span>
+                        <span className="text-slate-700 font-medium">{feature}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Enhanced CTA */}
                 <Link
                   to={service.route}
-                  className="group/link flex items-center justify-center px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 mt-auto"
+                  className="group/link flex items-center justify-center px-4 py-3 sm:px-6 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 mt-auto text-sm"
                 >
-                  <span className="mr-3">Explore Service</span>
+                  <span className="mr-2">Explore</span>
                   <motion.div
-                    className="flex items-center justify-center w-6 h-6 bg-white/20 rounded-full"
+                    className="flex items-center justify-center w-5 h-5 bg-white/20 rounded-full"
                     whileHover={{ scale: 1.1, rotate: 90 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Icons.ChevronRight className="w-4 h-4 text-white" />
+                    <Icons.ChevronRight className="w-3 h-3 text-white" />
                   </motion.div>
                 </Link>
 
-                {/* Hover Effect Overlay */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-t from-blue-600/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   initial={false}
@@ -310,31 +299,31 @@ const Services = () => {
           ))}
         </motion.div>
 
-        {/* Premium Services CTA */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-24"
+          className="text-center mt-20 sm:mt-24"
         >
-          <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-lg rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 cursor-pointer max-w-max mx-auto group">
+          <div className="inline-flex items-center px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-base sm:text-lg rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 cursor-pointer max-w-max mx-auto group">
             <span className="mr-3">View All Enterprise Solutions</span>
             <motion.div
               whileHover={{ x: 4 }}
-              className="flex items-center justify-center w-8 h-8 bg-white/20 rounded-full"
+              className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-full"
             >
-              <Icons.ChevronRight className="w-5 h-5 text-white" />
+              <Icons.ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </motion.div>
           </div>
           
-          <p className="text-slate-600 mt-6 text-sm">
+          <p className="text-slate-600 mt-4 sm:mt-6 text-xs sm:text-sm">
             Trusted by Fortune 500 companies • ISO 27001 Certified • SOC 2 Compliant
           </p>
         </motion.div>
       </div>
 
-      {/* Grid Pattern CSS */}
+      {/* Grid Pattern */}
       <style jsx>{`
         .bg-grid-slate-100 {
           background-image: 

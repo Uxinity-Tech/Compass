@@ -171,7 +171,7 @@ const Header = () => {
               </motion.div>
             </Link>
             {/* Launch Badge */}
-            <motion.div 
+            {/* <motion.div 
               className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-emerald-500 to-green-600 text-white text-xs font-bold rounded-full shadow-lg"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -179,7 +179,7 @@ const Header = () => {
             >
               <Icons.Zap className="w-3 h-3 mr-1" />
               Launched Yesterday
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           {/* Desktop Navigation */}

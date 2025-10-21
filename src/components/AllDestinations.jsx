@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useSearchParams } from "react-router-dom";
 
@@ -174,6 +174,13 @@ const regions = [...new Set(allDestinations.map(d => d.region))].sort();
 const continents = [...new Set(allDestinations.map(d => d.continent))].sort();
 
 const AllDestinations = () => {
+  useEffect(() => {
+      window.scrollTo(0, 0);
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }, []);
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
   const [selectedRegion, setSelectedRegion] = useState(searchParams.get('region') || '');

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ShieldCheckIcon, ClockIcon, UsersIcon, CheckCircleIcon } from "@heroicons/react/outline";
@@ -147,6 +147,13 @@ const partnerLogos = [
 
 
 const HowItWorks = () => {
+  useEffect(() => {
+      window.scrollTo(0, 0);
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }, []);
   return (
     <section className="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Premium Background Elements */}
