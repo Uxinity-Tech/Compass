@@ -167,7 +167,7 @@ const Header = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Icons.Logo className="w-6 h-6 text-white" />
-                <span className="text-white font-bold text-xl tracking-tight">TravelEase</span>
+                <span className="text-white font-bold text-xl tracking-tight">Compass Travels</span>
               </motion.div>
             </Link>
             {/* Launch Badge */}
